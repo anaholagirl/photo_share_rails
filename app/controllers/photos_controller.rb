@@ -26,11 +26,12 @@ before_filter :authorize, only: [:show, :update, :destroy]
   def destroy
     @photo = Photo.find(params[:id])
     @photo.destroy
+    redirect_to photos_path(current_user)
   end
 
 private
   def photo_params
-    params.require(:photo).permit(:image, :user_id).merge(:user_id => current_user.id)
+    params.require(:photo).permit(:image, :user_id, :name).merge(:user_id => current_user.id)
   end
 
 end
