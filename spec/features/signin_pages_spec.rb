@@ -34,6 +34,17 @@ require 'rails_helper'
       fill_in 'Password', with: 'password'
       fill_in 'Password confirmation', with: ''
       click_button 'Sign Up'
-      expect(page).to have_content 'Form is invalid'
+      expect(page).to have_content 'Access Denied'
+    end
+
+
+    it "will successfully log out a user" do
+      user1 = User.create(email: 'user@email.com', password: 'testpassword', :password_confirmation => 'testpassword')
+      visit '/login'
+      fill_in 'Email', with: 'user@email.com'
+      fill_in 'Password', with: 'testpassword'
+      click_button 'Log In'
+      click_link 'Log Out'
+      expect(page).to have_content 'Say Cheese'
     end
   end
