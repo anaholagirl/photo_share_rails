@@ -1,7 +1,9 @@
 <h1>Say Cheese</h1>
 <h4><em>A photo world where cheese is MORE than just a cheese.</em></h4>
 
+<% if current_user != nil %>
 <p><%= link_to "Add Photo", new_photo_path %>
+<% end %>
 <br></br>
   <% @photos.each do |photo| %>
     <%= link_to image_tag(photo.image.url(:medium)), photo_path(photo) %>
