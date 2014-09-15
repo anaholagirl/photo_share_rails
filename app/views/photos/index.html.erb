@@ -1,2 +1,8 @@
 <h1>Say Cheese</h1>
 <h4><em>A photo world where cheese is MORE than just a cheese.</em></h4>
+
+<p><%= link_to "Add Photo", new_photo_path %>
+
+  <% @photos.each do |photo| %>
+    <%= image_tag(photo.image.url(:thumb)) %>
+  <% end %>
