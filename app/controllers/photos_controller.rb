@@ -1,4 +1,5 @@
 class PhotosController < ApplicationController
+before_filter :authorize, only: [:show, :update, :destroy]
   def index
     @photos = Photo.all
   end
@@ -10,8 +11,8 @@ class PhotosController < ApplicationController
 
   def create
     @user = User.find(session[:user_id])
-    @photo = Photo.create(photo_params)
-    if @photo.valid?
+    @photo = Photo.new(photo_params)
+    if @photo.save
       redirect_to photos_path
     else
       render 'new'
@@ -19,17 +20,17 @@ class PhotosController < ApplicationController
   end
 
   def show
-    @photo = Photo.find(:id)
+    @photo = Photo.find(params[:id])
   end
 
   def destroy
-    @photo = Photo.find(:id)
+    @photo = Photo.find(params[:id])
     @photo.destroy
   end
 
 private
   def photo_params
-    params.require(:photo).permit(:image, :user_id)
+    params.require(:photo).permit(:image, :user_id).merge(:user_id => current_user.id)
   end
 
 end
