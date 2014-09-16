@@ -6,7 +6,7 @@
 <br></br>
 <%= link_to "Tag People", new_photo_tag_path(@photo) %>
 <br></br>
-<%= button_to "Favorite this Photo",
+
 <%= link_to "Home Page", photos_path %>
 <br></br>
 <% if current_user != nil && current_user.id == @photo.user_id %>
