@@ -4,16 +4,18 @@ class TagsController < ApplicationController
   end
 
   def new
-    @photos = Photo.all
-    @users= User.all
-    @tag =Tag.new
+    @photo = Photo.find(params[:photo_id])
+
+    @tag = Tag.new
   end
 
   def create
-    @photo = Photo.find(params[:id])
-    @user = User.find(params[:id])
-    @tag = Tag.new(tag_params)
+    @photo = Photo.find(params[:photo_id])
+
+    @tag = @photo.tags.new(tag_params)
     if @tag.save
+
+      flash[:notice] = "This photo has been tagged!"
       redirect_to photos_path
     else
       render 'new'

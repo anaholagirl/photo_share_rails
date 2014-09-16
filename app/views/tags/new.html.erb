@@ -1,0 +1,4 @@
+<h1><%= @photo.name %></h1>
+<br></br>
+<%=image_tag(@photo.image.url(:medium)) %>
+<%= render 'form' %>

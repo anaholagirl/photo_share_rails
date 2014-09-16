@@ -1,0 +1,8 @@
+<%= render("layouts/errors", :object => @tag) %>
+
+<%= form_for [@photo, @tag] do |f| %>
+<div class='form-group'>
+  <%= f.collection_select :user_id, User.all, :id, :email, prompt: "Select User" %>
+</div>
+  <%= f.submit(:class => "btn btn-success") %>
+<% end %>
