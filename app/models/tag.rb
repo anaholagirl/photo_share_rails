@@ -3,4 +3,7 @@ class Tag < ActiveRecord::Base
   validates :user_id, :presence => true
   validates_uniqueness_of :user_id
   validates_uniqueness_of :photo_id
+
+  belongs_to :photo
+  belongs_to :user
 end

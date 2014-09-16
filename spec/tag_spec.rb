@@ -4,4 +4,7 @@ describe Tag do
   it{ should validate_presence_of :user_id}
   it{ should validate_uniqueness_of :photo_id}
   it{ should validate_uniqueness_of :user_id}
+
+  it{ should belong_to :photo}
+  it{ should belong_to :user}
 end
