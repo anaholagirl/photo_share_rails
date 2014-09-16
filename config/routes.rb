@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions
   resources :photos
+  resources :tags
 
 end
