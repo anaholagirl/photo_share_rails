@@ -4,4 +4,5 @@ describe Photo do
   it{ should belong_to :user}
 
   it{ should have_many :tags}
+  it{ should have_many :users}
 end
