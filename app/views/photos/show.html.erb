@@ -2,13 +2,12 @@
 <br></br>
 <%=image_tag(@photo.image.url(:medium)) %>
 
+<p><%= link_to "Tag People", new_photo_tag_path(@photo) %></p>
 
-<br></br>
-<%= link_to "Tag People", new_photo_tag_path(@photo) %>
-<br></br>
+<p><%= link_to "Like It!", new_photo_favorite_path(@photo) %></p>
 
-<%= link_to "Home Page", photos_path %>
-<br></br>
+<p><%= link_to "Home Page", photos_path %></p>
+
 <% if current_user != nil && current_user.id == @photo.user_id %>
   <p><%= link_to "Delete", photo_path(@photo), method: "delete" %></p>
 <% end %>

@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   resources :sessions
   resources :photos do
     resources :tags, :only => [:new, :create]
+    resources :favorites, :only => [:new, :create]
   end
   resources :tags
+  resources :favorites
 
 end

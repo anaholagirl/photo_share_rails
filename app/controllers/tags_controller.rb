@@ -22,13 +22,8 @@ class TagsController < ApplicationController
     end
   end
 
-  # def show
-  #   @tag = Tag.find(params[:id])
-  # end
-
-private
+ private
   def tag_params
     params.require(:tag).permit(:photo_id, :user_id)
   end
-
 end

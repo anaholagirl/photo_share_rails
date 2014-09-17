@@ -1,0 +1,6 @@
+<%= render("layouts/errors", :object => @favorite) %>
+
+<%= form_for [@photo, @favorite] do |f| %>
+
+  <%= f.submit(:class => "btn btn-success") %>
+<% end %>
