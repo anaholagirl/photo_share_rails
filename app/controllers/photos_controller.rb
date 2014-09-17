@@ -23,6 +23,21 @@ before_filter :authorize, only: [:show, :update, :destroy]
     @photo = Photo.find(params[:id])
   end
 
+  def edit
+    @user = User.find(session[:user_id])
+    @photo = Photo.find(params[:id])
+  end
+
+  def update
+    @user = User.find(session[:user_id])
+    @photo = Photo.find(params[:id])
+    if @photo.update(photo_params)
+      redirect_to photos_path
+    else
+      render 'edit'
+    end
+  end
+
   def destroy
     @photo = Photo.find(params[:id])
     @photo.destroy
