@@ -7,4 +7,6 @@ class Photo < ActiveRecord::Base
   belongs_to :user, :dependent => :destroy
   has_many :tags, :dependent => :destroy
   has_many :users, through: :tags
+  has_many :users, through: :favorites
+  has_many :favorites, :dependent => :destroy
 end

@@ -6,4 +6,6 @@ class User < ActiveRecord::Base
   has_many :photos, :dependent => :destroy
   has_many :tags, :dependent => :destroy
   has_many :photos, through: :tags
+  has_many :photos, through: :favorites
+  has_many :favorites, :dependent => :destroy
 end
