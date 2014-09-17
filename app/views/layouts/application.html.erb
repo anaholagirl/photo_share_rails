@@ -7,6 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div id="one">
+</div>
+<div id="two">
+</div>
+<div id="three">
+</div>
   <% if current_user %>
     Logged in as <%= current_user.email %>.
     <%= link_to "Log Out", logout_path %>
