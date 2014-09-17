@@ -2,12 +2,12 @@
 <br></br>
 <%=image_tag(@photo.image.url(:medium)) %>
 
-<p><%= link_to "Tag People", new_photo_tag_path(@photo) %></p>
+<p><%= link_to "Tag People", new_photo_tag_path(@photo), :class => 'btn btn-info' %></p>
 
-<p><%= link_to "Like It!", new_photo_favorite_path(@photo) %></p>
+<p><%= link_to "Like It!", new_photo_favorite_path(@photo), :class => 'btn btn-warning' %></p>
 
-<p><%= link_to "Home Page", photos_path %></p>
+<p><%= link_to "Home Page", photos_path, :class => 'btn btn-success' %></p>
 
 <% if current_user != nil && current_user.id == @photo.user_id %>
-  <p><%= link_to "Delete", photo_path(@photo), method: "delete" %></p>
+  <p><%= link_to "Delete", photo_path(@photo), method: "delete", :class => 'btn btn-danger' %></p>
 <% end %>

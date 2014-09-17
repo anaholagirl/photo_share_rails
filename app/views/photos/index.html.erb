@@ -2,9 +2,9 @@
 <h4><em>A photo world where cheese is MORE than just a cheese.</em></h4>
 
 <% if current_user != nil %>
-<p><%= link_to "Add Photo", new_photo_path %></p>
+<p><%= link_to "Add Photo", new_photo_path, :class => 'btn btn-success' %></p>
 
-<p><%= link_to "Go to User Page", user_path(current_user) %></p>
+<p><%= link_to "View Profile", user_path(current_user), :class => 'btn btn-primary' %></p>
 <% end %>
   <% @photos.each do |photo| %>
     <%= link_to image_tag(photo.image.url(:medium)), photo_path(photo) %>
